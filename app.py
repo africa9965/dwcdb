@@ -4,7 +4,7 @@ import os
 
 app = Flask(__name__)
 DATA_FILE = "dwc.json"
-SECRET_KEY = "maxonlysecret123"  # Change this to your real key
+SECRET_KEY = "africa123"  # Change this to your real key
 
 def load_entries():
     if not os.path.exists(DATA_FILE):
