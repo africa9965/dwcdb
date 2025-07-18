@@ -4,6 +4,7 @@ import os
 
 app = Flask(__name__)
 DATA_FILE = "dwc.json"
+SECRET_KEY = "maxonlysecret123"  # Change this to something unique
 
 def load_entries():
     if not os.path.exists(DATA_FILE):
@@ -23,11 +24,13 @@ def index():
 
 @app.route("/submit", methods=["POST"])
 def submit():
-    if request.remote_addr != "127.0.0.1":
-        return jsonify({"status": "unauthorized"}), 403
-
     identifier = request.form.get("identifier")
     reason = request.form.get("reason")
+    key = request.form.get("adminkey")
+
+    if key != SECRET_KEY:
+        return jsonify({"status": "unauthorized"}), 403
+
     if identifier and reason:
         save_entry({"identifier": identifier, "reason": reason})
         return jsonify({"status": "success"})
@@ -43,6 +46,5 @@ def search():
     return jsonify({"status": "not_found"})
 
 if __name__ == "__main__":
-    # Fix for Render deployment
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
