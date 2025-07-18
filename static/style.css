@@ -1,0 +1,33 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    padding: 20px;
+    color: #333;
+}
+.container {
+    max-width: 500px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+button {
+    padding: 10px 20px;
+    background: #4a90e2;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+button:hover {
+    background: #357ab8;
+}
+#result, #submitStatus {
+    margin-top: 20px;
+}
