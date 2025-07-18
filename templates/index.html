@@ -12,11 +12,12 @@
         <button onclick="search()">Search</button>
         <div id="result"></div>
 
-        <!-- DWC Submission (Only shows if on localhost) -->
-        <div id="adminForm" style="display: none;">
+        <!-- Visible for admin -->
+        <div id="adminForm">
             <h2>Submit New DWC Entry</h2>
             <input type="text" id="newID" placeholder="Discord/Roblox ID">
             <textarea id="reason" placeholder="Reason for DWC..."></textarea>
+            <input type="password" id="adminkey" placeholder="Admin Key">
             <button onclick="submitDWC()">Submit</button>
             <div id="submitStatus"></div>
         </div>
