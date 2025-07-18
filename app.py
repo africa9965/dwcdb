@@ -4,7 +4,7 @@ import os
 
 app = Flask(__name__)
 DATA_FILE = "dwc.json"
-SECRET_KEY = "maxonlysecret123"  # Change this to something unique
+SECRET_KEY = "maxonlysecret123"  # Change this to your real key
 
 def load_entries():
     if not os.path.exists(DATA_FILE):
@@ -34,6 +34,7 @@ def submit():
     if identifier and reason:
         save_entry({"identifier": identifier, "reason": reason})
         return jsonify({"status": "success"})
+
     return jsonify({"status": "invalid"}), 400
 
 @app.route("/search", methods=["GET"])
