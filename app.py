@@ -1,4 +1,3 @@
-
 from flask import Flask, request, render_template, jsonify
 import json
 import os
@@ -44,4 +43,6 @@ def search():
     return jsonify({"status": "not_found"})
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    # Fix for Render deployment
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
